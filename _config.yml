@@ -33,3 +33,15 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+keep_files:
+  - assets/snippets
+collections:
+  references:
+    output: true
+    permalink: /references/:path/
+defaults:
+  - scope:
+      path: ""
+      type: references
+    values:
+      layout: page

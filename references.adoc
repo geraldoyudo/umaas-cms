@@ -1,0 +1,10 @@
+= Reference
+:page-layout: home
+:page-permalink: /reference
+:uri-asciidoctor: http://asciidoctor.org
+:page-liquid:
+
+.Reference Lists
+{% for reference in site.references %}
+    * {{site.url}}/references/{{reference.name}}[{{ reference.name }}]
+{% endfor %}
