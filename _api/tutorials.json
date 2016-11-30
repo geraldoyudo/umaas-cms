@@ -4,7 +4,7 @@ name: tutorials
 permalink: /api/tutorials.json
 ---
 [
-{% for ref in site.references %}
+{% for ref in site.tutorials %}
   { "title": "{{ ref.title }}", "url": "{{ ref.url}}", "logo": "{{ref.logo}}" },
 {% endfor %}
   null

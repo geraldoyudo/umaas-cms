@@ -46,6 +46,6 @@ collections:
   guides:
     output: true
     permalink: /guides/:path/
-  guides:
+  events:
     output: true
     permalink: /events/:path/

@@ -4,4 +4,5 @@ Oyudo Gerald <gerald.oyudo@isslng.com>
 :icons: font
 :page-layout: false
 :page-name: getting-started-with-spring-boot
-:page-logo: logos/rest.png
+:page-logo: /assets/logos/documentation.png
+:page-platform: Spring Boot

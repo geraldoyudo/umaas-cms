@@ -5,7 +5,7 @@ permalink: /api/guides.json
 ---
 [
 {% for ref in site.guides %}
-  { "title": "{{ ref.title }}", "url": "{{ ref.url}}", "logo": "{{ref.logo}}" },
+  { "title": "{{ ref.title }}", "url": "{{ ref.url}}", "logo": "{{ref.logo}}", "platform": "{{ref.platform}}" },
 {% endfor %}
   null
 ]
