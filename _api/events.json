@@ -1,0 +1,11 @@
+---
+layout: false
+name: events
+permalink: /api/events.json
+---
+[
+{% for ref in site.events %}
+  { "title": "{{ ref.title }}", "url": "{{ ref.url}}", "logo": "{{ref.logo}}", "eventDate": "{{ref.eventDate}}" },
+{% endfor %}
+  null
+]

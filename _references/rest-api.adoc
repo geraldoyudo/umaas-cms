@@ -12,6 +12,7 @@ Oyudo Gerald <gerald.oyudo@isslng.com>
 :page-layout: false
 :page-name: rest-api
 :page-logo: logos/rest.png
+:page-platform: rest
 
 [introduction]
 = Introduction

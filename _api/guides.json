@@ -1,0 +1,11 @@
+---
+layout: false
+name: guides
+permalink: /api/guides.json
+---
+[
+{% for ref in site.guides %}
+  { "title": "{{ ref.title }}", "url": "{{ ref.url}}", "logo": "{{ref.logo}}" },
+{% endfor %}
+  null
+]

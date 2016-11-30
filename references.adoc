@@ -1,10 +1,13 @@
 = Reference
-:page-layout: home
+:page-layout: false
 :page-permalink: /reference
 :uri-asciidoctor: http://asciidoctor.org
 :page-liquid:
 
+UMAAS provides a rich and extensive api for performing just about anything
+user related. Check the following for platform specific references.
+
 .Reference Lists
 {% for reference in site.references %}
-    * {{site.url}}/references/{{reference.name}}[{{ reference.name }}]
+    * {{site.url}}/references/{{reference.name}}[{{ reference.title }}]
 {% endfor %}

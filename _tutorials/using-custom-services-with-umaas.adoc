@@ -1,0 +1,7 @@
+= Using Custom Services with UMAAS
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: using-custom-services-with-umaas
+:page-logo: logos/rest.png

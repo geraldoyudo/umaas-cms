@@ -1,0 +1,12 @@
+= Getting Started
+:page-layout: false
+:page-permalink: /guide
+:uri-asciidoctor: http://asciidoctor.org
+:page-liquid:
+
+For a quick start in any of the platforms, check out the following:
+
+.Getting Started Guides
+{% for guide in site.guides %}
+    * {{site.url}}/guides/{{guide.name}}[{{ guide.title }}]
+{% endfor %}

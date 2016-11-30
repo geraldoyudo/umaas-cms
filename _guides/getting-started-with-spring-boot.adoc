@@ -1,0 +1,7 @@
+= Getting Started with UMAAS in Spring Boot
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: getting-started-with-spring-boot
+:page-logo: logos/rest.png
