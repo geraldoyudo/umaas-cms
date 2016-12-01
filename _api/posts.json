@@ -6,7 +6,7 @@ permalink: /api/posts.json
 [
 {% for ref in site.posts %}
   { "title": "{{ ref.title }}", "url": "{{ ref.url}}",
-  "logo": "{{ref.logo}}"},
+  "logo": "{{ref.logo}}", "date": "{{ref.date}}"},
 {% endfor %}
   null
 ]
