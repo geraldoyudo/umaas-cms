@@ -1,0 +1,8 @@
+= Getting Started with UMAAS in Express NodeJS
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: getting-started-with-express-nodejs
+:page-logo: /assets/logos/nodejs.jpg
+:page-platform: NodeJS

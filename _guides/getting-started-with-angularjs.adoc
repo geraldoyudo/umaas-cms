@@ -1,0 +1,8 @@
+= Getting Started with UMAAS in AngularJS
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: getting-started-with-angularjs
+:page-logo: /assets/logos/angularjs.png
+:page-platform: AngularJS

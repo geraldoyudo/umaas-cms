@@ -1,0 +1,8 @@
+= Getting Started with UMAAS in Django
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: getting-started-with-django
+:page-logo: /assets/logos/python.png
+:page-platform: Python

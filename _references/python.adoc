@@ -1,0 +1,8 @@
+= UMAAS Java API
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: article
+:icons: font
+:page-layout: false
+:page-name: java-api
+:page-logo: /assets/logos/python.png
+:page-platform: Python

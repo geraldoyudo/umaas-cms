@@ -3,10 +3,13 @@ layout: false
 name: posts
 permalink: /api/posts.json
 ---
+
 [
 {% for ref in site.posts %}
+
+  {% assign size = ref.excerpt | size | minus: 9 %}
   { "title": "{{ ref.title }}", "url": "{{ ref.url}}",
-  "logo": "{{ref.logo}}", "date": "{{ref.date}}"},
+  "logo": "{{ref.logo}}", "date": "{{ref.date}}", "excerpt": "{{ref.excerpt | strip_html | slice: 0, size}}"},
 {% endfor %}
   null
 ]
