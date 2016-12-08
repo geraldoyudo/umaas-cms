@@ -5,7 +5,7 @@
 :page-liquid:
 
 UMAAS provides a rich and extensive api for performing just about anything
-user related. Check the following for platform specific references.
+user related. Check the following for platform specific references. They are all good.
 
 .Reference Lists
 {% for reference in site.references %}
