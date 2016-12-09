@@ -134,7 +134,7 @@ linked to  this domain.
 4. replace [domain-name] with the name of your domain
 
 The new values is shown here:
-[source, properties]
+[source, text]
 ----
 ...
 umaas.core=http://test.isslserv.com:8070/umaas-core
