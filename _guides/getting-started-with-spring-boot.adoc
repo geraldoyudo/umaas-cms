@@ -1,8 +1,270 @@
 = Getting Started with UMAAS in Spring Boot
 Oyudo Gerald <gerald.oyudo@isslng.com>
-:doctype: article
+:doctype: book
 :icons: font
+:toc: left
+:toclevels: 4
 :page-layout: false
+:source-highlighter: highlightjs
 :page-name: getting-started-with-spring-boot
 :page-logo: /assets/logos/spring-boot.png
 :page-platform: Spring Boot
+:imagesdir: /assets/guides/getting-started-with-umaas-springboot/
+
+Springboot offers a lot of resources and libraries to help develop complex
+software. It leverages core concepts of dependency injection and separation
+of concerns. With springboot you can focus on letting your app do what is
+is supposed to do and nothing more. In this tutorial, we are going showcase
+how easy it is to integrate UMAAS with a springboot application.
+
+== Requirements
+This tutorial was done using the following:
+
+* Windows 10 PC
+* Spring boot 4.2
+* Java 8
+* Spring Tool Suite
+* And of course, a UMAAS account!
+
+== Creating your UMAAS Account
+This step is the easiest, just head on to the link:../getting-started-with-umaas[Getting Started With UMAAS]
+for details.
+
+In this tutorial, we will work with the following:
+
+* Two Groups: "admin" and "regular"
+* Two Roles: "admin" and "normal"
+* The "admin" group will have the "admin" role
+* The "regular" group will have the "normal" role
+* We will create three users: admin, user-1 and user-2 each with the password "aaaa"
+* The admin user will be assigned to the admin group, while user-1 and user-2
+  to the normal group.
+
+== The Hello UMAAS Application
+In this tutorial, we will be making a simple application that comprises of
+4 pages:
+
+* A welcome page that is accessible to all users, registered or not
+* A home page that is accessible to all registered users
+* A "Regular" page that is accessible to only registered users that belong to
+  the "regular" group
+* An "Admin" page that is accessible to only registered users that belong to
+  the admin group
+
+== The UMAAS Spring Boot Starter
+The UMAAS spring boot starter is the best way to start integration of UMAAS with
+ springboot. It comes with the following:
+
+* A custom authentication and user details service that integrates with UMAAS
+* An AppUser class that represents the User Object
+* A pre-configured Security Configuration class with basic security configuration.
+* Controllers for Login and Register
+* A properties file for adding application specific properties.
+
+Fork or download the https://github.com/geraldoyudo/umaas-starter-springboot[UMAAS Spring Boot Starter]
+here.
+
+=== Exploring the UMAAS Spring Boot Starter
+The source code of the project is a maven project that can help you get started.
+Do not worry if you are using gradle or a different version of spring boot. In this case,
+just change the relevant aspects of the code, or better yet, create a new project with
+your favorite IDE and environment, copy the source codes to your new project.
+
+[[umaas-starter-directory-structure]]
+.UMAAS Spring Boot Starter Directory Structure
+image::spring-boot-starter-directory-structure.png[UMAAS Starter Directory Structure]
+
+The springboot starter comprises of the following:
+
+AppStarterSpringbootApplication.java:: The SpringBootApplication class
+HomeController.java:: A Controller for the pages we are going to create
+SecurityConfig.java:: Contains basic spring security configuration with our
+custom user details service and authentication.
+AppAuthenticationProvider.java:: Contains implementation for the Authentication
+and UserDetails service.
+AppUser.java:: The POJO class for a user Object
+LoginController.java:: Provides the registration and login pages
+static:: A folder for adding static files like .css, .js and image files.
+templates:: This project uses Thymeleaf for rendering views, so we store our
+templates here.
+application.properties:: A properties file for adding app specific properties.
+
+=== Customizing the UMAAS Spring Boot Starter
+
+Assuming you are using the starter directly, you need to perform the following:
+
+1. Rename the project by changing the name of the folder and modifying the pom.xml
+2. Renaming the packages
+3. Replace place holders in application.properties to the app specific values.
+
+
+==== Renaming the project
+
+Since we are creating a Hello UMAAS project, we need to rename it as such,
+including its packages. We do the same for the pom.xml. Here's a sample.
+
+[source, xml]
+----
+  ...
+  ...
+	<groupId>com.gerald.umaas.example</groupId>
+	<artifactId>hello-umaas-spring-boot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>hello-umaas</name>
+	<description>Simple UMAAS Starter Example</description>
+  ...
+  ...
+----
+
+The new directory structure becomes:
+
+[[umaas-starter-directory-structure]]
+.New UMAAS Spring Boot Starter Directory Structure
+image::spring-boot-starter-directory-structure-new.png[New UMAAS Starter Directory Structure]
+
+==== Applying App Specific Values
+
+Here, we modify the application.properties and set the following:
+1. replace [access-code-id] with the access code ID of the access code
+linked to  this domain.
+2. replace [access-code] with the access code value
+3. replace [domain-id] with the ID of your domain
+4. replace [domain-name] with the name of your domain
+
+The new values is shown here:
+[source, properties]
+----
+...
+umaas.core=http://test.isslserv.com:8070/umaas-core
+umaas.manager.access.id=584aaa6887e76bf7acf59675
+umaas.manager.access.code=8329473843we8uqi98324328794323
+umaas.manager.domain.id=584a9b5387e76bf7acf59668
+umaas.registrationUrl=http://test.isslserv.com:8070/umaas-registration/app/register?domain=com.example.todo
+...
+----
+
+=== Creating the Pages
+
+As our requirement states, we need four pages. We add the pages to the HomeController.java. The
+class contains some default pages. All we need to do is modify them and add more if necessary.
+
+The HomeController.java now becomes
+
+.HomeController.java
+[source, java]
+----
+...
+@Controller
+public class HomeController {
+
+	@GetMapping("/")
+	public String index(){
+		return "index";
+	}
+	@GetMapping("/home")
+	public String home(){
+		return "home";
+	}
+	@GetMapping("/admin")
+	public String admin(){
+		return "admin";
+	}
+	@GetMapping("/regular")
+	public String regular(){
+		return "regular";
+	}
+
+}
+...
+----
+
+Once this is done, we now add (or edit) the pages in the template folder to
+correspond to the four pages ("index", "home", "admin" and "regular"). If all is
+done successfully, we should have the following in our templates folder:
+
+* admin.html
+* home.html
+* index.html
+* login.html
+* regular.html
+
+Don't forget to add content to the pages!
+
+NOTE: Do not remove the login.html page. This page is the login page used for
+the application!!
+
+=== Securing the pages
+
+Here, we modify the SecurityConfig.java to apply the restrictions we desire.
+The resulting configuration is shown below.
+
+.SecurityConfig.java
+[source, java]
+----
+...
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	@Autowired
+	private AppAuthenticationProvider provider;
+	private static final String APP_KEY = "helloUMAAS";
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		  http
+          .authorizeRequests()
+          .antMatchers("/home/**")
+          .authenticated()
+          .antMatchers("/regular/**")
+          .hasAnyRole("NORMAL")
+          .antMatchers("/admin/**")
+          .hasAnyRole("ADMIN")
+          .anyRequest().permitAll()
+          .and()
+          .formLogin()
+          .loginPage("/login")
+          .permitAll()
+          .and()
+          .httpBasic()
+          .and()
+          .logout()
+          .logoutSuccessUrl("/login")
+          .and()
+          .rememberMe()
+          .tokenValiditySeconds(30)
+          .key(APP_KEY);
+	}
+  ...
+  ...
+}
+...
+----
+
+Here, we changed the APP_KEY to "helloUMAAS" to avoid conflict with other
+remember-me tokens from other applications. The astute reader will note that
+the roles are written in capital letter while we saved the roles in small letters.
+A snippet of the AppAuthenticationProvider is shown below:
+
+[source, java]
+----
+...
+
+private Collection<? extends GrantedAuthority> getAuthorities(List<String> roles) {
+		return roles.stream()
+				.map((r) ->{ return new SimpleGrantedAuthority("ROLE_" + r.toUpperCase());} )
+				.collect(Collectors.toList());
+	}
+
+...
+----
+
+The "r.toUpperCase()" converts all roles to uppercase and makes it possible for us
+to refer to our roles using only uppercase.
+
+=== Running the application
+
+If you are using STS, just right click on the project name on the Boot Dashboard and
+click (Re)Start. Try login in with the users admin, user-1 and user-2 (all with "aaaa"
+as the password). You have successfully integrated UMAAS with your spring boot application!!
+
+You can find the completed project https://github.com/geraldoyudo/hello-umaas-spring-boot[here]

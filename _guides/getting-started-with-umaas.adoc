@@ -1,0 +1,136 @@
+= Getting Started with UMAAS
+Oyudo Gerald <gerald.oyudo@isslng.com>
+:doctype: book
+:icons: font
+:toc: left
+:toclevels: 4
+:source-highlighter: highlightjs
+:page-layout: false
+:page-logo: logos/rest.png
+:page-name: getting-started-with-umaas
+:umaas-website: http://test.isslserv.com:8074
+:imagesdir: /assets/guides/getting-started-with-umaas/
+:page-logo: /assets/logos/documentation.png
+:page-platform: General Getting Started
+
+UMAAS is a service that takes all the hassle of user managment from the developer.
+With this service, a developer can have a central point for storing  user information,
+relate with users, and perform routine activities like role assignment, group assignment,
+sending mails, and so on.
+
+== Registration
+We are currently in the testing phase of UMAAS. This means that we will have
+to grant you access to your account once you have registered.
+
+Head on to {umaas-website}[UMAAS Website] click on "Sign UP" on the top right corner. Follow the
+registration steps and an account will be created for you. You will get an email
+stating that your registration is successful and pending approval.
+
+Once we have approved your account, you can now log {umaas-website}/login[here]
+
+== Domains
+Domains are the unit of user management in UMAAS. All applications have a user
+base and this user information is stored in a domain. You can have multiple domains
+for multiple accounts, this ensures that a user must register on each of your applications.
+You can also choose to have one domain for multiple applications which will save your
+users the stress of registering for each of your applications.
+
+=== Creating a Domain
+To get started with creating a user-base for your application, click on My Account
+and Domains to take you to the Domains page.
+
+[[accessing-domains]]
+.Accessing Domains Page
+image::accessing-domains.png[Accessing Domains]
+
+Head on to the domains page and click the add button on the bottom left of the
+page.
+
+[[adding-domain]]
+.Adding Domains
+image::adding-domains.png[Click on the add button to add a domain]
+
+Once you click the add button, a domain form dialog pops up. Just enter the name
+and code for your domain.
+
+NOTE: Domain names are human friendly names. It is advised to keep your domain
+names name-spaced to avoid naming conflicts. For example com.example.todo for a
+TODO application.
+
+NOTE: Domain codes on the other hand are not friendly and can be auto generated. These
+codes can be used to access the umaas flows and administration applicaiton. You can
+auto-generate a new code to generate new links like that for registration.
+
+[[new-domain-form]]
+.Filling out form for a  new domain
+image::new-domain-form.png[new domain form]
+
+Once that is done, click "Create Domain" and your domain is created!! You will
+be able to view the newly created domain on the domain page-name
+
+[[domain-page-with-new-domain]]
+.Domain page with new domain
+image::domain-page-with-new-domain.png[Domain page with a new domain]
+
+On each domain, a "MANAGE" and "REGISTER USER" button exists to enable the
+domain administrator access the domain administration page and perform registration
+flows.
+
+=== Managing Domains
+Domain administration is performed using the UMAAS domain administrator UI. It
+enables the domain administrator to add users, groups and roles; group users; and
+assign roles to users and groups.
+
+In addition to these, the behaviour of the domain can be changed by modifying properties
+in the settings and configuration sections.
+
+On the domain page, click on "Manage Domains". You will be redirected to
+the domain administration page. In the video below, we will create to groups: admin and regular,
+and two roles: admin and normal. The admin group will be assigned the admin role and
+the "regular" group will be assigned the admin role. We will also create 3 Users:
+one admin and two regular.
+
+[[domain-management-video]]
+.Creating Users, Groups and Roles
+video::domain-managment.webm[width=100%,height=50%]
+
+== Access Codes
+Access codes are the gateway to accessing domains or the domain administrator. An access
+code is made up of an ID and a CODE. The ID is fixed while the CODE can be changed.
+In order to access the UMAAS API, you need do add the access code information on the
+header as specified.
+
+Access Codes grant you access to one or more domains. This way, you can give a third party
+your codes and be confident that he/she will only access the required domain. And if you
+change your mind, you can revoke access to that domain with the access code.
+
+=== Creating an Access Code
+To create an access code for your domain, click on "My Accounts" and then "Access Codes"
+
+[[accessing-access-codes]]
+.Accessing Access Codes Page
+image::accessing-access-codes.png[Accessing Access Codes]
+
+Head on to the access codes page and click the add button on the bottom left of the
+page.
+
+[[adding-access-codes]]
+.Adding Access Codes
+image::adding-access-codes.png[Click on the add button to add a domain]
+
+Once you click the add button, an access code form pops up as shown below:
+
+[[new-access-code-form]]
+.Filling out form for a  new Access Code
+image::new-access-code-form.png[new access code form]
+
+Fill out the form and click "Create Access Code".
+
+[[access-code-page-with-new-access-code]]
+.Access Code page with new domain
+image::access-code-page-with-new-access-code.png[Domain page with a new domain]
+
+Let us add the domain we created to this access code so that we can be able to access
+the domain with our access code. Click on the drop down on the Domains column and add
+the domain. Once this is done, click on "UPDATE". You will now be able to access
+this domain with this access code.
